@@ -64,17 +64,29 @@ Y= A⊕B
 
 **PROGRAM**
 ```
-module loggic_gate(a,b,c1,c2,c3,c4,c5,c6,c7);
-input a,b;
-output c1,c2,c3,c4,c5,c6,c7;
-assign c1=~a;
-assign c2=a&b;
-assign c3=a|b;
-assign c4=~(a&b);
-assign c5=~(a|b);
-assign c6=a^b;
-assign c7=~(a^b);
+module EXP1 (
+    input  wire a,     // Input A
+    input  wire b,     // Input B
+    output wire and_out,
+    output wire or_out,
+    output wire not_out,   // only on A
+    output wire nand_out,
+    output wire nor_out,
+    output wire xor_out,
+    output wire xnor_out
+);
+
+    assign and_out  = a & b;      // AND gate
+    assign or_out   = a | b;      // OR gate
+    assign not_out  = ~a;         // NOT gate (on input A)
+    assign nand_out = ~(a & b);   // NAND gate
+    assign nor_out  = ~(a | b);   // NOR gate
+    assign xor_out  = a ^ b;      // XOR gate
+    assign xnor_out = ~(a ^ b);   // XNOR gate
+
 endmodule
+
+
 ```
 
 Program for logic gates and verify its truth table in quartus using Verilog programming
@@ -87,8 +99,8 @@ Program for logic gates and verify its truth table in quartus using Verilog prog
 ![Truth table](https://github.com/user-attachments/assets/875f3fe9-9d9b-49e8-a799-85bbf3ca0663)
 
 **RTL realization Output:** 
-![Screenshot (33)](https://github.com/user-attachments/assets/eb352c3d-a1d6-4760-9de5-cc2ba17822b3)
 
+<img width="1300" height="696" alt="image" src="https://github.com/user-attachments/assets/16c549c1-5fb6-463f-b2e8-c6f3c20f08d7" />
 
 **RTL**
 <img width="1513" height="823" alt="Screenshot 2025-09-29 161644" src="https://github.com/user-attachments/assets/1da9008f-4220-44e7-a305-ebe0dca82a1d" />
